@@ -1,0 +1,47 @@
+{
+  "name": "mahsuma-agent-platform",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Embeddable multi-product AI Agent Platform (RAG + tools + guardrails) for Mahsuma products",
+  "scripts": {
+    "dev": "next dev",
+    "build": "npm run build:widget && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "db:migrate": "node --import tsx src/db/migrate.ts",
+    "db:seed": "node --import tsx src/db/seed.ts",
+    "db:reset": "rm -f data/agent.db && npm run db:migrate && npm run db:seed",
+    "build:widget": "node --import tsx scripts/build-widget.ts",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "smoke": "node --import tsx scripts/smoke.ts",
+    "token": "node --import tsx scripts/mint-token.ts"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.123.0",
+    "better-sqlite3": "^11.10.0",
+    "drizzle-orm": "^0.45.2",
+    "nanoid": "^6.0.1",
+    "next": "^16.3.4",
+    "pdf-parse": "^2.4.5",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "zod": "^4.5.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^26.4.1",
+    "@types/pdf-parse": "^1.1.5",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "drizzle-kit": "^0.31.10",
+    "esbuild": "^0.28.2",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2"
+  }
+}
