@@ -6,7 +6,7 @@
 
 | الحقل | القيمة |
 |---|---|
-| Repository | `MahsumahhCloud/mahsumah-agent-platform`، الفرع `main` |
+| Repository | `MahsumahCloud/mahsumah-agent-platform`، الفرع `main` |
 | Framework | Next.js، Root directory `./` |
 | Install command | `npm ci` |
 | Build command | `npm run build` |
