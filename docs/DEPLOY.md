@@ -2,13 +2,21 @@
 
 المنصة تطبيق Next.js يحتاج **عملية دائمة وقرصاً دائماً** (SQLite + ملفات المعرفة)، لذلك يُنشر كحاوية Docker وليس كموقع serverless.
 
-## 1) اربط المستودع
+## 1) إعداد المشروع في البوابة (Deploy from GitHub)
 
-من لوحة محسومة كلاود → مشروع جديد → اختر `MahsumahCloud/mahsuma-agent-platform` (الفرع `main`). المنصة تكتشف `Dockerfile` وتبني الصورة داخل المملكة.
+| الحقل | القيمة |
+|---|---|
+| Repository | `MahsumahCloud/mahsuma-agent-platform`، الفرع `main` |
+| Framework | Next.js، Root directory `./` |
+| Install command | `npm ci` |
+| Build command | `npm run build` |
+| Start command | `npm run start:cloud` |
+
+`start:cloud` يشغّل الترحيل والتهيئة (idempotent) ثم `next start` على `0.0.0.0:$PORT`. البوابة تبني داخل المملكة؛ ملف `Dockerfile` في المستودع بديل لأي استضافة تعتمد الحاويات.
 
 ## 2) القرص الدائم
 
-أضف Volume وثبّته على `/data`. يحتوي `agent.db` والرفع والـ embeddings. بدونه تُفقد المعرفة والمحادثات مع كل نشر.
+القرص مثبّت تلقائياً على `/data`. وجّه قاعدة البيانات والرفع إليه عبر المتغيرين `DATABASE_PATH` و`UPLOAD_DIR` (الجدول أدناه)، وإلا تُمسح المعرفة والمحادثات مع كل نشر.
 
 ## 3) متغيرات البيئة (تبويب Environment)
 
@@ -22,7 +30,9 @@
 | `ADMIN_PASSWORD` | كلمة مرور قوية للوحة التحكم |
 | `SESSION_SECRET` | 32+ حرفاً عشوائياً (`openssl rand -hex 32`) |
 | `NEXT_PUBLIC_APP_URL` | `https://agent.mahsuma.sa` |
-| `DATABASE_PATH` | `/data/agent.db` (افتراضي في الصورة) |
+| `DATABASE_PATH` | `/data/agent.db` |
+| `UPLOAD_DIR` | `/data/uploads` |
+| `NODE_ENV` | `production` |
 
 ## 4) النطاق
 
@@ -40,6 +50,11 @@
 docker build -t mahsuma-agent .
 docker run -p 3000:3000 -v $(pwd)/data:/data --env-file .env mahsuma-agent
 ```
+
+## الباقة المناسبة
+
+- **Free (256 MB)**: للتجربة الأولى فقط؛ بناء Next قد يحتاج ذاكرة أكثر وقت التشغيل ضيق.
+- **Starter (512 MB)** كحد أدنى للإنتاج الفعلي، و**Pro (1 GB)** إذا رُفعت وثائق كثيرة أو زاد عدد المواقع المضمّنة.
 
 ## ملاحظات التوسع
 
