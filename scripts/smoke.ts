@@ -3,12 +3,12 @@ import { runAgent } from "@/lib/agent";
 
 /** End-to-end smoke run against the local DB with whatever LLM_PROVIDER is configured. */
 const cases = [
-  { productId: "mahsuma-cloud", tenantId: "company_123", userId: "user_456", role: "customer_admin", message: "ما هي أفضل باقة لموقعي؟", pageContext: { path: "/dashboard/projects", projectType: "nextjs" } },
-  { productId: "mahsuma-cloud", tenantId: "company_123", userId: "user_456", role: "developer", message: "كيف أنشر تطبيق Next.js؟" },
-  { productId: "mahsuma-cloud", tenantId: "company_123", userId: "user_456", role: "customer", message: "حالة النشر فشلت، ما السبب؟" },
-  { productId: "mahsuma-dcc", tenantId: "org_1", userId: "u1", role: "visitor", message: "أريد فاتورتي الأخيرة" },
-  { productId: "mahsuma-dcc", tenantId: "org_1", userId: "u1", role: "customer_admin", message: "افتح لي تذكرة دعم: لا أستطيع إضافة مؤشر جديد" },
-  { productId: "mahsuma-dcc", tenantId: "org_1", userId: "u1", role: "customer", message: "ما هو سعر محسومة كلاود؟" },
+  { productId: "mahsumah-cloud", tenantId: "company_123", userId: "user_456", role: "customer_admin", message: "ما هي أفضل باقة لموقعي؟", pageContext: { path: "/dashboard/projects", projectType: "nextjs" } },
+  { productId: "mahsumah-cloud", tenantId: "company_123", userId: "user_456", role: "developer", message: "كيف أنشر تطبيق Next.js؟" },
+  { productId: "mahsumah-cloud", tenantId: "company_123", userId: "user_456", role: "customer", message: "حالة النشر فشلت، ما السبب؟" },
+  { productId: "mahsumah-dcc", tenantId: "org_1", userId: "u1", role: "visitor", message: "أريد فاتورتي الأخيرة" },
+  { productId: "mahsumah-dcc", tenantId: "org_1", userId: "u1", role: "customer_admin", message: "افتح لي تذكرة دعم: لا أستطيع إضافة مؤشر جديد" },
+  { productId: "mahsumah-dcc", tenantId: "org_1", userId: "u1", role: "customer", message: "ما هو سعر محسومة كلاود؟" },
 ];
 
 async function main() {

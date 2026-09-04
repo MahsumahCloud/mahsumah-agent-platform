@@ -29,7 +29,7 @@ export const createOnboardingChecklist = registerTool({
   inputSchema: z.object({ goal: z.string().describe("What the customer wants to achieve"), technicalLevel: z.enum(["non-technical", "developer", "team"]).default("developer") }),
   outputSchema: z.object({ checklist: z.array(z.object({ step: z.string(), done: z.boolean(), link: z.string().optional() })) }),
   async execute(input, ctx) {
-    const base = ctx.product.id === "mahsuma-dcc"
+    const base = ctx.product.id === "mahsumah-dcc"
       ? [
           { step: "إنشاء الهيكل التنظيمي والإدارات", done: false, link: "/settings/org" },
           { step: "دعوة أعضاء الفريق وتحديد الصلاحيات", done: false, link: "/settings/members" },

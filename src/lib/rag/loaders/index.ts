@@ -25,7 +25,7 @@ export async function loadUrl(url: string): Promise<LoadedDocument> {
   if (!/^https?:$/.test(parsed.protocol)) throw new Error("Only http(s) URLs are supported");
   await assertPublicHost(parsed.hostname);
   // No redirects: a redirect could point at an internal address after the check above.
-  const res = await fetch(url, { headers: { "user-agent": "MahsumaAgentBot/1.0" }, signal: AbortSignal.timeout(15000), redirect: "manual" });
+  const res = await fetch(url, { headers: { "user-agent": "MahsumahAgentBot/1.0" }, signal: AbortSignal.timeout(15000), redirect: "manual" });
   if (res.status >= 300 && res.status < 400) throw new Error(`URL redirects (${res.status}); add the final URL directly`);
   if (!res.ok) throw new Error(`Fetch failed with status ${res.status}`);
   const html = await res.text();

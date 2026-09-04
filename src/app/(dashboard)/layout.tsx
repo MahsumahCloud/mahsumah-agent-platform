@@ -8,7 +8,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
   if (!(await isAdminRequest())) redirect("/login");
   return (
     <div className="flex min-h-screen">
-      <Sidebar logoSrc={assetUrl(getOrganization()?.theme.logoUrl) ?? assetUrl("/brand/mahsuma-logo.svg") ?? "/brand/mahsuma-logo.svg"} />
+      <Sidebar logoSrc={assetUrl(getOrganization()?.theme.logoUrl) ?? assetUrl("/brand/mahsumah-logo.svg") ?? "/brand/mahsumah-logo.svg"} />
       <main className="flex-1 overflow-x-hidden p-8">{children}</main>
     </div>
   );

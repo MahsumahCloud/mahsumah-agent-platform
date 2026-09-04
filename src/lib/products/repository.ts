@@ -8,7 +8,7 @@ export class ProductNotFoundError extends Error {
 }
 
 /** Reserved id of the organization-level profile whose knowledge every product agent inherits. */
-export const ORGANIZATION_ID = "mahsuma-org";
+export const ORGANIZATION_ID = "mahsumah-org";
 
 /** Customer-facing products only (the organization profile is excluded). */
 export function listProducts(): ProductProfile[] {

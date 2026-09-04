@@ -8,8 +8,8 @@
 // في API route داخل منتجك (Next.js/Express/…)
 const res = await fetch(`${AGENT_URL}/api/v1/agent/chat`, {
   method: "POST",
-  headers: { "content-type": "application/json", authorization: `Bearer ${process.env.MAHSUMA_AGENT_KEY}` },
-  body: JSON.stringify({ productId: "mahsuma-cloud", tenantId: session.orgId, userId: session.userId, role: session.role, message, conversationId, pageContext: { path } }),
+  headers: { "content-type": "application/json", authorization: `Bearer ${process.env.MAHSUMAH_AGENT_KEY}` },
+  body: JSON.stringify({ productId: "mahsumah-cloud", tenantId: session.orgId, userId: session.userId, role: session.role, message, conversationId, pageContext: { path } }),
 });
 ```
 
@@ -25,9 +25,9 @@ const res = await fetch(`${AGENT_URL}/api/v1/agent/chat`, {
 
 ```html
 <!-- قبل التسجيل -->
-<script src="https://agent.mahsumaah.sa/widget.js" data-product-id="mahsuma-cloud" data-locale="ar"></script>
+<script src="https://agent.mahsumaah.sa/widget.js" data-product-id="mahsumah-cloud" data-locale="ar"></script>
 <!-- بعد التسجيل -->
-<script src="https://agent.mahsumaah.sa/widget.js" data-product-id="mahsuma-cloud" data-user-token="mat_..." data-locale="ar"></script>
+<script src="https://agent.mahsumaah.sa/widget.js" data-product-id="mahsumah-cloud" data-user-token="mat_..." data-locale="ar"></script>
 ```
 
 ## 2) الويدجت من المتصفح — برمز مستخدم موقّع
@@ -38,8 +38,8 @@ const res = await fetch(`${AGENT_URL}/api/v1/agent/chat`, {
 // backend (Node) — انسخ الدالة من src/lib/tenancy/user-token.ts أو نفّذ نفس المواصفة
 import { signUserToken } from "./user-token";
 const token = signUserToken(
-  { productId: "mahsuma-cloud", tenantId: org.id, userId: user.id, role: user.role, name: user.name, locale: "ar", ttlSeconds: 900 },
-  process.env.MAHSUMA_AGENT_KEY,
+  { productId: "mahsumah-cloud", tenantId: org.id, userId: user.id, role: user.role, name: user.name, locale: "ar", ttlSeconds: 900 },
+  process.env.MAHSUMAH_AGENT_KEY,
 );
 ```
 
@@ -47,7 +47,7 @@ const token = signUserToken(
 
 ```html
 <script src="https://agent.example.com/widget.js"
-  data-product-id="mahsuma-cloud"
+  data-product-id="mahsumah-cloud"
   data-user-token="mat_..."
   data-locale="ar"
   data-user-name="أحمد"
@@ -57,7 +57,7 @@ const token = signUserToken(
 
 - الهوية تأتي من الرمز فقط؛ أي `tenantId/userId/role` في الطلب تُتجاهل.
 - جدّد الرمز مع كل تحميل صفحة (TTL 15 دقيقة افتراضياً). عند انتهائه يعرض الويدجت رسالة خطأ ويكفي إعادة تحميل الصفحة.
-- للتجربة المحلية: `npm run token -- mahsuma-cloud mak_… company_123 user_456 customer_admin`.
+- للتجربة المحلية: `npm run token -- mahsumah-cloud mak_… company_123 user_456 customer_admin`.
 - الحد 30 طلب/دقيقة لكل مفتاح+مستخدم موقّع، و300/دقيقة لكل مفتاح+IP للاستدعاءات من الخادم.
 
 جميع خصائص `data-*`: `product-id` (إلزامي)، `user-token`، `locale` (ar/en)، `base-url`، `user-name`، `page-context` (JSON)، `primary-color`، `title`، `position` (bottom-right/bottom-left). خصائص `tenant-id/user-id/role` تُستخدم فقط في وضع الجلسة نفس-الأصل (لوحة التحكم/الديمو).
@@ -65,7 +65,7 @@ const token = signUserToken(
 الويدجت يطلق حدثاً على `window` عند ضغط إجراء مقترح:
 
 ```js
-window.addEventListener("mahsuma-agent:action", (e) => {
+window.addEventListener("mahsumah-agent:action", (e) => {
   const action = e.detail; // { type: "upgrade_plan", label, payload: { planId } }
   if (action.type === "upgrade_plan") router.push(`/billing?plan=${action.payload.planId}`);
 });
@@ -76,7 +76,7 @@ window.addEventListener("mahsuma-agent:action", (e) => {
 انسخ `src/widgets/react/AgentWidget.tsx` (أو انشره كحزمة داخلية):
 
 ```tsx
-<AgentWidget productId="mahsuma-dcc" userToken={token} locale="ar" baseUrl={process.env.NEXT_PUBLIC_AGENT_URL} pageContext={{ path: pathname }} />
+<AgentWidget productId="mahsumah-dcc" userToken={token} locale="ar" baseUrl={process.env.NEXT_PUBLIC_AGENT_URL} pageContext={{ path: pathname }} />
 ```
 
 ## 4) ما يجب أن يمرّره المنتج

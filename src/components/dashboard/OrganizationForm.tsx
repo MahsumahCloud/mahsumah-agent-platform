@@ -28,7 +28,7 @@ export function OrganizationForm({ initial }: { initial: ProductProfile }) {
           </div>
         </div>
         <div><label className="label">اسم المؤسسة</label><input className="input" value={p.name} onChange={(e) => setP({ ...p, name: e.target.value })} /></div>
-        <div><label className="label">رابط الشعار الافتراضي (يُستخدم لكل منتج لا يملك شعاراً خاصاً)</label><input className="input" dir="ltr" placeholder="/brand/mahsuma-logo.svg أو https://…" value={p.theme.logoUrl ?? ""} onChange={(e) => setP({ ...p, theme: { ...p.theme, logoUrl: e.target.value } })} /></div>
+        <div><label className="label">رابط الشعار الافتراضي (يُستخدم لكل منتج لا يملك شعاراً خاصاً)</label><input className="input" dir="ltr" placeholder="/brand/mahsumah-logo.svg أو https://…" value={p.theme.logoUrl ?? ""} onChange={(e) => setP({ ...p, theme: { ...p.theme, logoUrl: e.target.value } })} /></div>
       </div>
       <div><label className="label">تعريف المؤسسة (يظهر لكل الوكلاء)</label><textarea className="input" rows={3} value={p.description} onChange={(e) => setP({ ...p, description: e.target.value })} /></div>
       <div><label className="label">تعليمات مشتركة لكل الوكلاء (الهوية، القيم، قنوات التواصل، قواعد التوجيه)</label><textarea className="input min-h-[160px] font-mono text-xs leading-6" value={p.productPrompt} onChange={(e) => setP({ ...p, productPrompt: e.target.value })} /></div>

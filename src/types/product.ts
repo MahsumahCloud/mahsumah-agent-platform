@@ -53,7 +53,7 @@ export interface WidgetTheme {
 
 /**
  * "product": a customer-facing product with its own agent.
- * "organization": the single company-level profile (Mahsuma). Its knowledge and prompt are
+ * "organization": the single company-level profile (Mahsumah). Its knowledge and prompt are
  * inherited by every product agent so all agents know the whole product family.
  */
 export type ProfileKind = "product" | "organization";

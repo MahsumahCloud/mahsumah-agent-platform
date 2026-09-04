@@ -1,8 +1,8 @@
 {
-  "name": "mahsuma-agent-platform",
+  "name": "mahsumah-agent-platform",
   "version": "0.1.0",
   "private": true,
-  "description": "Embeddable multi-product AI Agent Platform (RAG + tools + guardrails) for Mahsuma products",
+  "description": "Embeddable multi-product AI Agent Platform (RAG + tools + guardrails) for Mahsumah products",
   "scripts": {
     "dev": "next dev",
     "build": "npm run build:widget && next build",

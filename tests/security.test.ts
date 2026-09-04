@@ -19,22 +19,22 @@ test("user tokens are bound to key, product and expiry", async () => {
   const { createApiKey, revokeApiKey } = await import("../src/lib/tenancy/api-keys");
   const { signUserToken, verifyUserToken } = await import("../src/lib/tenancy/user-token");
   for (const p of seedProducts) upsertProduct(p);
-  const { raw, record } = createApiKey("mahsuma-cloud", "widget");
+  const { raw, record } = createApiKey("mahsumah-cloud", "widget");
 
-  const token = signUserToken({ productId: "mahsuma-cloud", tenantId: "t1", userId: "u1", role: "customer" }, raw);
-  const ok = verifyUserToken(token, "mahsuma-cloud");
+  const token = signUserToken({ productId: "mahsumah-cloud", tenantId: "t1", userId: "u1", role: "customer" }, raw);
+  const ok = verifyUserToken(token, "mahsumah-cloud");
   assert.equal(ok.payload.userId, "u1");
   assert.equal(ok.keyId, record.id);
 
-  assert.throws(() => verifyUserToken(token, "mahsuma-dcc"), /product/);
+  assert.throws(() => verifyUserToken(token, "mahsumah-dcc"), /product/);
   const tampered = token.replace(Buffer.from(JSON.stringify({})).toString("base64url").slice(0, 0), "").replace(/\.[^.]+$/, ".AAAA");
-  assert.throws(() => verifyUserToken(tampered, "mahsuma-cloud"), /Invalid|Malformed/);
-  const expired = signUserToken({ productId: "mahsuma-cloud", tenantId: "t1", userId: "u1", role: "customer", ttlSeconds: -10 }, raw);
-  assert.throws(() => verifyUserToken(expired, "mahsuma-cloud"), /expired/);
-  const forged = signUserToken({ productId: "mahsuma-cloud", tenantId: "t1", userId: "u1", role: "owner" }, "mak_mahsumacloud_notTheRealKey00000000");
-  assert.throws(() => verifyUserToken(forged, "mahsuma-cloud"), /Invalid/);
+  assert.throws(() => verifyUserToken(tampered, "mahsumah-cloud"), /Invalid|Malformed/);
+  const expired = signUserToken({ productId: "mahsumah-cloud", tenantId: "t1", userId: "u1", role: "customer", ttlSeconds: -10 }, raw);
+  assert.throws(() => verifyUserToken(expired, "mahsumah-cloud"), /expired/);
+  const forged = signUserToken({ productId: "mahsumah-cloud", tenantId: "t1", userId: "u1", role: "owner" }, "mak_mahsumahcloud_notTheRealKey00000000");
+  assert.throws(() => verifyUserToken(forged, "mahsumah-cloud"), /Invalid/);
 
   revokeApiKey(record.id);
-  assert.throws(() => verifyUserToken(token, "mahsuma-cloud"), /Invalid/);
+  assert.throws(() => verifyUserToken(token, "mahsumah-cloud"), /Invalid/);
   fs.rmSync(dir, { recursive: true, force: true });
 });

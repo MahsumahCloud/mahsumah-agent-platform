@@ -1,10 +1,10 @@
 import type { ProductProfileInput } from "@/types";
 
 /** Agent for the main mahsumaah.sa website: pre-sales and general customer service. */
-export const mahsumaMain: ProductProfileInput = {
-  id: "mahsuma",
+export const mahsumahMain: ProductProfileInput = {
+  id: "mahsumah",
   name: "محسومة (الموقع الرئيسي)",
-  nameEn: "Mahsuma",
+  nameEn: "Mahsumah",
   description: "الموقع الرئيسي لمحسومة: التعريف بالشركة وعائلة منتجاتها، وخدمة العملاء العامة قبل التسجيل في أي منتج.",
   audience: "الزوار والعملاء المحتملون وأي عميل لا يعرف أي منتج يناسبه",
   website: "https://mahsumaah.sa",
@@ -13,7 +13,7 @@ export const mahsumaMain: ProductProfileInput = {
     role: "خدمة العملاء العامة والتوجيه للمنتج المناسب",
     tone: "عربي ودود ومهني، مبسّط لغير التقنيين",
     greeting: "أهلاً بك في محسومة. أقدر أعرّفك بمنتجاتنا وأساعدك تختار المناسب لك، أو أوصلك بفريق المبيعات والدعم.",
-    greetingEn: "Welcome to Mahsuma. I can introduce our products, help you pick the right one, or connect you with sales and support.",
+    greetingEn: "Welcome to Mahsumah. I can introduce our products, help you pick the right one, or connect you with sales and support.",
     canHelpWith: ["التعريف بمنتجات محسومة", "اختيار المنتج المناسب", "التواصل مع المبيعات والدعم", "الأسئلة العامة عن الشركة"],
     cannot: ["ذكر أسعار تفصيلية لمنتج بعينه غير موجودة في المعرفة", "إعطاء وعود قانونية أو مالية"],
     defaultLocale: "ar",

@@ -1,4 +1,4 @@
-# منصة وكلاء محسومة — Mahsuma Agent Platform
+# منصة وكلاء محسومة — Mahsumah Agent Platform
 
 منصة **AI Agent** متعددة المنتجات، قابلة للتضمين داخل أي منتج SaaS أو لوحة تحكم أو موقع. كل منتج له وكيل مستقل (معرفة + أدوات + شخصية + صلاحيات) فوق نفس المحرك.
 
@@ -22,14 +22,14 @@
 
 | الطبقة | المكان | من يراها |
 |---|---|---|
-| **معرفة المؤسسة** (تعريف محسومة، دليل المنتجات، القيم، قنوات التواصل، الشعار الافتراضي) | لوحة التحكم → "معرفة المؤسسة المشتركة" (`mahsuma-org`) | كل الوكلاء |
+| **معرفة المؤسسة** (تعريف محسومة، دليل المنتجات، القيم، قنوات التواصل، الشعار الافتراضي) | لوحة التحكم → "معرفة المؤسسة المشتركة" (`mahsumah-org`) | كل الوكلاء |
 | **معرفة المنتج** (وثائق، باقات، أسئلة شائعة، سياسات، أدوات) | لوحة التحكم → المنتج | وكيل ذلك المنتج فقط |
 
-البحث الدلالي يستعلم عن نطاقي المعرفة معاً، والبرمبت يحتوي طبقة مؤسسة تُدرج دليل المنتجات تلقائياً، فإذا سُئل وكيل كلاود عن DCC أجاب باختصار من المعرفة المشتركة ثم وجّه العميل لمساعد DCC. المنتجات المضمّنة: `mahsuma` (الموقع الرئيسي/خدمة العملاء العامة)، `mahsuma-cloud`، `mahsuma-dcc`، و`mahsuma-moto` كقالب معطّل حتى تُكمل بياناته.
+البحث الدلالي يستعلم عن نطاقي المعرفة معاً، والبرمبت يحتوي طبقة مؤسسة تُدرج دليل المنتجات تلقائياً، فإذا سُئل وكيل كلاود عن DCC أجاب باختصار من المعرفة المشتركة ثم وجّه العميل لمساعد DCC. المنتجات المضمّنة: `mahsumah` (الموقع الرئيسي/خدمة العملاء العامة)، `mahsumah-cloud`، `mahsumah-dcc`، و`mahsumah-moto` كقالب معطّل حتى تُكمل بياناته.
 
 ## الشعار والهوية
 
-- شعار المؤسسة: ضع الملف في `public/brand/` (الافتراضي `public/brand/mahsuma-logo.svg`، استبدله بشعارك) وأشر إليه من صفحة المؤسسة.
+- شعار المؤسسة: ضع الملف في `public/brand/` (الافتراضي `public/brand/mahsumah-logo.svg`، استبدله بشعارك) وأشر إليه من صفحة المؤسسة.
 - شعار لكل منتج: إعداد الوكيل → الشخصية → "شعار المنتج"؛ إن تُرك فارغاً يُستخدم شعار المؤسسة.
 - الويدجت يعرض الشعار واللون والاسم تلقائياً من `GET /api/v1/widget-config`.
 
@@ -53,7 +53,7 @@ npm run dev                 # http://localhost:3000
 ```
 
 - لوحة التحكم: `http://localhost:3000` (كلمة المرور من `ADMIN_PASSWORD`).
-- صفحة عرض الويدجت: `http://localhost:3000/demo?productId=mahsuma-cloud`.
+- صفحة عرض الويدجت: `http://localhost:3000/demo?productId=mahsumah-cloud`.
 - الاختبارات: `npm test` · تجربة المحرك من الطرفية: `npm run smoke` · الفحص: `npm run typecheck` · الإنتاج: `npm run build && npm start`.
 
 > **Node 20+**. المشروع مثبّت على `better-sqlite3@11` لأن الإصدار 13 يتعطل على Node 22.12 في macOS. قاعدة البيانات في `data/agent.db`.
@@ -143,7 +143,7 @@ scripts/build-widget.ts     esbuild للويدجت
 4. الأدوات → فعّل ما يناسب المنتج فقط.
 5. الربط والتضمين → انسخ snippet الويدجت أو مثال cURL.
 
-**بالكود** (للنسخ التجريبية/الـ IaC): أضف ملفاً في `src/data/products/<id>.ts` بنفس شكل `mahsuma-cloud.ts`، سجّله في `src/data/products/index.ts`، ضع وثائقه في `src/data/knowledge/<id>/*.md`، ثم `npm run db:seed`.
+**بالكود** (للنسخ التجريبية/الـ IaC): أضف ملفاً في `src/data/products/<id>.ts` بنفس شكل `mahsumah-cloud.ts`، سجّله في `src/data/products/index.ts`، ضع وثائقه في `src/data/knowledge/<id>/*.md`، ثم `npm run db:seed`.
 
 ## كيف أرفع معرفة جديدة
 
@@ -156,7 +156,7 @@ scripts/build-widget.ts     esbuild للويدجت
 - **Backend-to-backend**: `POST /api/v1/agent/chat` مع `Authorization: Bearer mak_...` وهوية المستخدم في الجسم.
 - **Widget/متصفح**: خادمك يولّد رمز مستخدم موقّعاً (`signUserToken` في `src/lib/tenancy/user-token.ts`) ثم `<script src=".../widget.js" data-product-id=".." data-user-token="mat_..">`. مفتاح المنتج لا يصل للمتصفح أبداً.
 - **React**: `<AgentWidget productId userToken baseUrl />` (`src/widgets/react/AgentWidget.tsx`).
-- للتجربة: `npm run token -- mahsuma-cloud mak_… company_123 user_456 customer_admin`.
+- للتجربة: `npm run token -- mahsumah-cloud mak_… company_123 user_456 customer_admin`.
 
 التفاصيل ومواصفة الرمز في `docs/INTEGRATION.md`.
 

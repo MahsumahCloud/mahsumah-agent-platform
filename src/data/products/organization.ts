@@ -3,14 +3,14 @@ import { ORGANIZATION_ID } from "@/lib/products/repository";
 
 /**
  * Organization-level profile. Not a customer-facing agent: its description, prompt and
- * knowledge are inherited by every product agent so all of them know the Mahsuma family
+ * knowledge are inherited by every product agent so all of them know the Mahsumah family
  * and can route customers to the right product. Edit from the dashboard → "معرفة المؤسسة".
  */
-export const mahsumaOrganization: ProductProfileInput = {
+export const mahsumahOrganization: ProductProfileInput = {
   id: ORGANIZATION_ID,
   kind: "organization",
   name: "محسومة",
-  nameEn: "Mahsuma",
+  nameEn: "Mahsumah",
   description: "محسومة شركة تقنية سعودية تبني منصات رقمية للشركات والجهات: الاستضافة والنشر (محسومة كلاود)، القيادة الرقمية والإدارة المؤسسية (محسومة DCC)، ومنتجات أخرى ضمن نفس العائلة. جميع الخدمات تُشغَّل من داخل المملكة وبواجهة عربية أولاً.",
   audience: "عملاء محسومة الحاليون والمحتملون في كل المنتجات",
   website: "https://mahsumaah.sa",
@@ -27,6 +27,6 @@ export const mahsumaOrganization: ProductProfileInput = {
   enabledTools: [],
   allowedRoles: [],
   confidenceThreshold: 0.5,
-  theme: { primaryColor: "#0f766e", logoUrl: "/brand/mahsuma-logo.svg", title: "مساعد محسومة" },
+  theme: { primaryColor: "#0f766e", logoUrl: "/brand/mahsumah-logo.svg", title: "مساعد محسومة" },
   status: "active",
 };

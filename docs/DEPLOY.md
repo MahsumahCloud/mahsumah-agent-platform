@@ -6,7 +6,7 @@
 
 | الحقل | القيمة |
 |---|---|
-| Repository | `MahsumahCloud/mahsuma-agent-platform`، الفرع `main` |
+| Repository | `MahsumahhCloud/mahsumah-agent-platform`، الفرع `main` |
 | Framework | Next.js، Root directory `./` |
 | Install command | `npm ci` |
 | Build command | `npm run build` |
@@ -47,8 +47,8 @@
 ## التشغيل محلياً بالحاوية
 
 ```bash
-docker build -t mahsuma-agent .
-docker run -p 3000:3000 -v $(pwd)/data:/data --env-file .env mahsuma-agent
+docker build -t mahsumah-agent .
+docker run -p 3000:3000 -v $(pwd)/data:/data --env-file .env mahsumah-agent
 ```
 
 ## الباقة المناسبة

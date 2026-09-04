@@ -13,7 +13,7 @@ import { TenancyError } from "./context";
  * Signing secret = sha256(rawApiKey) so the platform can verify with the stored key hash.
  *
  * Host-side helper (copy into your backend; Node example):
- *   signUserToken({ productId, tenantId, userId, role, ttlSeconds: 900 }, process.env.MAHSUMA_AGENT_KEY)
+ *   signUserToken({ productId, tenantId, userId, role, ttlSeconds: 900 }, process.env.MAHSUMAH_AGENT_KEY)
  */
 export interface UserTokenPayload {
   productId: string;

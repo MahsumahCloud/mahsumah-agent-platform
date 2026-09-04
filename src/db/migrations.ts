@@ -92,6 +92,26 @@ CREATE TABLE IF NOT EXISTS audit_log (
 );
 `,
   },
+  {
+    // Brand spelling fix: mahsuma-* ids became mahsumah-*. Safe to re-run (no-op once applied).
+    id: "0002_rename_brand_ids",
+    sql: `
+PRAGMA foreign_keys = OFF;
+UPDATE products SET id = replace(id, 'mahsuma-', 'mahsumah-'), profile = replace(replace(profile, 'mahsuma-', 'mahsumah-'), 'mahsuma.sa', 'mahsumaah.sa') WHERE id LIKE 'mahsuma-%';
+UPDATE products SET id = 'mahsumah', profile = replace(profile, '"id":"mahsuma"', '"id":"mahsumah"') WHERE id = 'mahsuma';
+UPDATE knowledge_sources SET product_id = replace(product_id, 'mahsuma-', 'mahsumah-') WHERE product_id LIKE 'mahsuma-%';
+UPDATE knowledge_sources SET product_id = 'mahsumah' WHERE product_id = 'mahsuma';
+UPDATE knowledge_chunks SET product_id = replace(product_id, 'mahsuma-', 'mahsumah-') WHERE product_id LIKE 'mahsuma-%';
+UPDATE knowledge_chunks SET product_id = 'mahsumah' WHERE product_id = 'mahsuma';
+UPDATE api_keys SET product_id = replace(product_id, 'mahsuma-', 'mahsumah-') WHERE product_id LIKE 'mahsuma-%';
+UPDATE api_keys SET product_id = 'mahsumah' WHERE product_id = 'mahsuma';
+UPDATE conversations SET product_id = replace(product_id, 'mahsuma-', 'mahsumah-') WHERE product_id LIKE 'mahsuma-%';
+UPDATE conversations SET product_id = 'mahsumah' WHERE product_id = 'mahsuma';
+UPDATE messages SET product_id = replace(product_id, 'mahsuma-', 'mahsumah-') WHERE product_id LIKE 'mahsuma-%';
+UPDATE messages SET product_id = 'mahsumah' WHERE product_id = 'mahsuma';
+PRAGMA foreign_keys = ON;
+`,
+  },
 ];
 
 export function runMigrations(sqlite: Database.Database): void {

@@ -25,7 +25,7 @@ export interface AgentWidgetProps {
 
 /**
  * React wrapper around the framework-agnostic embed script. Drop it once in your layout:
- *   <AgentWidget productId="mahsuma-cloud" userToken={tokenFromYourBackend} />
+ *   <AgentWidget productId="mahsumah-cloud" userToken={tokenFromYourBackend} />
  */
 export function AgentWidget(props: AgentWidgetProps) {
   const mounted = useRef(false);

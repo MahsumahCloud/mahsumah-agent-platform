@@ -15,7 +15,7 @@ export default async function IntegratePage({ params }: { params: Promise<{ id: 
   const tokenSnippet = `// في الباك-إند الخاص بمنتجك (Node) — انسخ signUserToken من src/lib/tenancy/user-token.ts
 const token = signUserToken(
   { productId: "${id}", tenantId: org.id, userId: user.id, role: "customer_admin", name: user.name, ttlSeconds: 900 },
-  process.env.MAHSUMA_AGENT_KEY,   // مفتاح المنتج mak_… يبقى في الخادم فقط
+  process.env.MAHSUMAH_AGENT_KEY,   // مفتاح المنتج mak_… يبقى في الخادم فقط
 );
 // أرسل token إلى الصفحة (مثلاً ضمن HTML أو من endpoint خاص بك)`;
   const scriptSnippet = `<script src="${base}/widget.js"

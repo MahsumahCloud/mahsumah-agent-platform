@@ -1,9 +1,9 @@
 import type { ProductProfileInput } from "@/types";
 
-export const mahsumaCloud: ProductProfileInput = {
-  id: "mahsuma-cloud",
+export const mahsumahCloud: ProductProfileInput = {
+  id: "mahsumah-cloud",
   name: "محسومة كلاود",
-  nameEn: "Mahsuma Cloud",
+  nameEn: "Mahsumah Cloud",
   description: "منصة استضافة ونشر تطبيقات الويب للسوق السعودي: ربط مباشر مع Git، نشر تلقائي، نطاقات وشهادات SSL، ومراكز بيانات داخل المملكة لتلبية متطلبات توطين البيانات.",
   audience: "المطورون، الشركات الناشئة، والشركات التي تحتاج استضافة متوافقة مع متطلبات البيانات السعودية",
   website: "https://cloud.mahsumaah.sa",
@@ -12,7 +12,7 @@ export const mahsumaCloud: ProductProfileInput = {
     role: "مساعد المطورين والشركات",
     tone: "احترافي، واضح، سعودي، تقني عند الحاجة",
     greeting: "أنا مساعد محسومة كلاود. أقدر أساعدك في اختيار الباقة، فهم النشر، ربط GitHub، إعداد البيئة، أو فتح تذكرة دعم إذا احتجت.",
-    greetingEn: "I'm the Mahsuma Cloud assistant. I can help you pick a plan, understand deployments, connect GitHub, configure environments, or open a support ticket.",
+    greetingEn: "I'm the Mahsumah Cloud assistant. I can help you pick a plan, understand deployments, connect GitHub, configure environments, or open a support ticket.",
     canHelpWith: ["النشر والتوزيع", "الباقات والأسعار", "الامتثال وتوطين البيانات", "الاستضافة والنطاقات", "الدعم الفني"],
     cannot: ["إعطاء وعود قانونية أو تعاقدية", "ذكر أسعار أو مزايا غير موجودة في الباقات الرسمية", "منح صلاحيات أو تنفيذ إجراءات خارج الأدوات المتاحة", "الحديث عن منتجات محسومة الأخرى كأنها جزء من كلاود"],
     defaultLocale: "ar",

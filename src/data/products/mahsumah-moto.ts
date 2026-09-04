@@ -1,13 +1,13 @@
 import type { ProductProfileInput } from "@/types";
 
 /**
- * Placeholder profile for Mahsuma Moto. Description, plans and knowledge must be filled in
+ * Placeholder profile for Mahsumah Moto. Description, plans and knowledge must be filled in
  * from the dashboard before enabling it for customers (status is "disabled" on purpose).
  */
-export const mahsumaMoto: ProductProfileInput = {
-  id: "mahsuma-moto",
+export const mahsumahMoto: ProductProfileInput = {
+  id: "mahsumah-moto",
   name: "محسومة موتو",
-  nameEn: "Mahsuma Moto",
+  nameEn: "Mahsumah Moto",
   description: "منتج من عائلة محسومة (حدّث هذا الوصف من لوحة التحكم: ما هو المنتج، لمن، وما الذي يقدمه).",
   audience: "حدّث الجمهور المستهدف من لوحة التحكم",
   persona: {

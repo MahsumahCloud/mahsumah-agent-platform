@@ -15,7 +15,7 @@ Base: `/api/v1`. الاستجابات JSON. الأخطاء بالشكل `{ "erro
 
 ```json
 {
-  "productId": "mahsuma-cloud",
+  "productId": "mahsumah-cloud",
   "tenantId": "company_123",
   "userId": "user_456",
   "role": "customer_admin",
@@ -77,14 +77,14 @@ Base: `/api/v1`. الاستجابات JSON. الأخطاء بالشكل `{ "erro
 ```bash
 # محادثة
 curl -s -X POST http://localhost:3000/api/v1/agent/chat \
-  -H "Authorization: Bearer $MAHSUMA_CLOUD_KEY" -H "Content-Type: application/json" \
-  -d '{"productId":"mahsuma-cloud","tenantId":"company_123","userId":"user_456","role":"developer","message":"كيف أنشر تطبيق Next.js؟"}'
+  -H "Authorization: Bearer $MAHSUMAH_CLOUD_KEY" -H "Content-Type: application/json" \
+  -d '{"productId":"mahsumah-cloud","tenantId":"company_123","userId":"user_456","role":"developer","message":"كيف أنشر تطبيق Next.js؟"}'
 
 # رفع PDF (بعد تسجيل الدخول وحفظ الكوكي)
 curl -s -c c.txt -X POST http://localhost:3000/api/v1/admin/login -H "Content-Type: application/json" -d '{"password":"change-me"}'
-curl -s -b c.txt -F file=@docs.pdf -F title="دليل المستخدم" http://localhost:3000/api/v1/products/mahsuma-cloud/knowledge
+curl -s -b c.txt -F file=@docs.pdf -F title="دليل المستخدم" http://localhost:3000/api/v1/products/mahsumah-cloud/knowledge
 
 # إضافة رابط
-curl -s -b c.txt -X POST http://localhost:3000/api/v1/products/mahsuma-dcc/knowledge \
+curl -s -b c.txt -X POST http://localhost:3000/api/v1/products/mahsumah-dcc/knowledge \
   -H "Content-Type: application/json" -d '{"type":"url","url":"https://dcc.mahsumaah.sa/docs/kpis"}'
 ```

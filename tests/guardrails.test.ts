@@ -21,9 +21,9 @@ test("locale detection", () => {
 });
 
 test("cross-product mention flagged", () => {
-  const dir = [{ id: "mahsuma-cloud", name: "محسومة كلاود", nameEn: "Mahsuma Cloud" }, { id: "mahsuma-dcc", name: "محسومة DCC", nameEn: "Mahsuma DCC" }];
-  assert.equal(mentionsOtherProduct("mahsuma-cloud", "هل محسومة DCC تدعم Power BI؟", dir)?.id, "mahsuma-dcc");
-  assert.equal(mentionsOtherProduct("mahsuma-cloud", "هل كلاود تدعم Docker؟", dir), undefined);
+  const dir = [{ id: "mahsumah-cloud", name: "محسومة كلاود", nameEn: "Mahsumah Cloud" }, { id: "mahsumah-dcc", name: "محسومة DCC", nameEn: "Mahsumah DCC" }];
+  assert.equal(mentionsOtherProduct("mahsumah-cloud", "هل محسومة DCC تدعم Power BI؟", dir)?.id, "mahsumah-dcc");
+  assert.equal(mentionsOtherProduct("mahsumah-cloud", "هل كلاود تدعم Docker؟", dir), undefined);
 });
 
 test("confidence is capped without evidence and lifted by tools", () => {

@@ -19,7 +19,7 @@ export function Sidebar({ logoSrc }: { logoSrc: string }) {
         <img src={logoSrc} alt="" className="h-10 w-10 rounded-xl object-contain" />
         <div>
           <div className="text-sm font-bold">منصة الوكلاء</div>
-          <div className="text-[11px] text-slate-500">Mahsuma Agent Platform</div>
+          <div className="text-[11px] text-slate-500">Mahsumah Agent Platform</div>
         </div>
       </div>
       <nav className="flex-1 space-y-1 px-3">

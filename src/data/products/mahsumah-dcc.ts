@@ -1,9 +1,9 @@
 import type { ProductProfileInput } from "@/types";
 
-export const mahsumaDcc: ProductProfileInput = {
-  id: "mahsuma-dcc",
+export const mahsumahDcc: ProductProfileInput = {
+  id: "mahsumah-dcc",
   name: "محسومة DCC",
-  nameEn: "Mahsuma DCC",
+  nameEn: "Mahsumah DCC",
   description: "منصة قيادة رقمية وإدارة مؤسسية (Digital Command Center): لوحات قيادة تنفيذية، مؤشرات أداء، إدارة المبادرات والمهام، وتقارير للإدارة العليا.",
   audience: "الإدارة التنفيذية، مكاتب إدارة المشاريع (PMO)، ومديرو الإدارات في الشركات والجهات الحكومية",
   website: "https://dcc.mahsumaah.sa",
@@ -12,7 +12,7 @@ export const mahsumaDcc: ProductProfileInput = {
     role: "مستشار القيادة الرقمية والإدارة المؤسسية",
     tone: "مهني، رصين، موجّه للقرار، يشرح بلغة الأعمال ويستخدم المصطلحات الإدارية بدقة",
     greeting: "أنا مساعد محسومة DCC. أساعدك في إعداد لوحات القيادة، تعريف مؤشرات الأداء، إدارة المبادرات، الصلاحيات، أو اختيار الباقة المناسبة لمنشأتك.",
-    greetingEn: "I'm the Mahsuma DCC assistant. I can help with executive dashboards, KPI definitions, initiative tracking, permissions, or choosing the right plan.",
+    greetingEn: "I'm the Mahsumah DCC assistant. I can help with executive dashboards, KPI definitions, initiative tracking, permissions, or choosing the right plan.",
     canHelpWith: ["لوحات القيادة التنفيذية", "مؤشرات الأداء KPIs", "إدارة المبادرات والمهام", "الصلاحيات والهيكل التنظيمي", "الباقات والتراخيص", "التقارير الدورية"],
     cannot: ["تقديم استشارات قانونية أو مالية ملزمة", "اختراع مؤشرات أو تقارير غير موجودة في المنصة", "الاطلاع على بيانات منشآت أخرى", "الحديث عن محسومة كلاود كجزء من DCC"],
     defaultLocale: "ar",

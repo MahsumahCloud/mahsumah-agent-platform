@@ -4,7 +4,7 @@
  * supports RTL/LTR and theming from the product profile.
  *
  * <script src="https://agent.example.com/widget.js"
- *   data-product-id="mahsuma-cloud" data-user-token="mat_..." data-locale="ar"></script>
+ *   data-product-id="mahsumah-cloud" data-user-token="mat_..." data-locale="ar"></script>
  *
  * Identity comes from `data-user-token`, a short-lived token minted by the host BACKEND
  * (see src/lib/tenancy/user-token.ts). Never put a product API key (mak_…) in a page.
@@ -22,7 +22,7 @@ interface AgentReply { conversationId: string; answer: string; confidence: numbe
 
 const STR = {
   ar: { placeholder: "اكتب سؤالك…", send: "إرسال", thinking: "جاري التفكير…", error: "تعذر الاتصال بالمساعد، حاول مرة أخرى.", sources: "المصادر", handoff: "قد يحتاج هذا السؤال لمتابعة من فريق الدعم.", open: "فتح المساعد", close: "إغلاق", poweredBy: "مدعوم بمنصة محسومة" },
-  en: { placeholder: "Type your question…", send: "Send", thinking: "Thinking…", error: "Could not reach the assistant, please try again.", sources: "Sources", handoff: "This may need a follow-up from the support team.", open: "Open assistant", close: "Close", poweredBy: "Powered by Mahsuma" },
+  en: { placeholder: "Type your question…", send: "Send", thinking: "Thinking…", error: "Could not reach the assistant, please try again.", sources: "Sources", handoff: "This may need a follow-up from the support team.", open: "Open assistant", close: "Close", poweredBy: "Powered by Mahsumah" },
 };
 
 function readConfig(): WidgetConfig {
@@ -31,7 +31,7 @@ function readConfig(): WidgetConfig {
   const base = d.baseUrl ?? (script ? new URL(script.src).origin : window.location.origin);
   let pageContext: Record<string, unknown> | undefined;
   try { pageContext = d.pageContext ? JSON.parse(d.pageContext) : { path: window.location.pathname }; } catch { pageContext = { path: window.location.pathname }; }
-  if (d.apiKey) console.error("[mahsuma-widget] data-api-key is not supported in the browser; mint a user token on your backend (data-user-token).");
+  if (d.apiKey) console.error("[mahsumah-widget] data-api-key is not supported in the browser; mint a user token on your backend (data-user-token).");
   return { productId: d.productId ?? "", userToken: d.userToken, tenantId: d.tenantId ?? "anonymous", userId: d.userId ?? visitorId(), role: d.role ?? "visitor", locale: (d.locale as "ar" | "en") ?? "ar", baseUrl: base, userName: d.userName, pageContext, primaryColor: d.primaryColor, title: d.title, position: d.position as WidgetConfig["position"] };
 }
 
@@ -106,7 +106,7 @@ function renderMarkdown(target: HTMLElement, text: string) {
   });
 }
 
-class MahsumaWidget {
+class MahsumahWidget {
   private cfg: WidgetConfig;
   private remote: RemoteConfig | null = null;
   private conversationId?: string;
@@ -124,7 +124,7 @@ class MahsumaWidget {
   }
 
   async mount() {
-    if (!this.cfg.productId) { console.warn("[mahsuma-widget] data-product-id is required"); return; }
+    if (!this.cfg.productId) { console.warn("[mahsumah-widget] data-product-id is required"); return; }
     try {
       const res = await fetch(`${this.cfg.baseUrl}/api/v1/widget-config?productId=${encodeURIComponent(this.cfg.productId)}`);
       if (res.ok) this.remote = (await res.json()) as RemoteConfig;
@@ -198,7 +198,7 @@ class MahsumaWidget {
   }
 
   private handleAction(act: AgentReply["suggestedActions"][number]) {
-    window.dispatchEvent(new CustomEvent("mahsuma-agent:action", { detail: act }));
+    window.dispatchEvent(new CustomEvent("mahsumah-agent:action", { detail: act }));
     if (act.type === "open_ticket") { this.input.value = this.cfg.locale === "ar" ? "افتح لي تذكرة دعم بخصوص هذا الموضوع" : "Please open a support ticket about this"; void this.send(); }
     else if (act.type === "view_docs" && typeof act.payload?.url === "string") window.open(act.payload.url, "_blank", "noopener");
     else if (act.type === "navigate" && typeof act.payload?.path === "string") window.location.assign(act.payload.path);
@@ -230,6 +230,6 @@ class MahsumaWidget {
 
 (function boot() {
   const cfg = readConfig();
-  const start = () => { const w = new MahsumaWidget(cfg); void w.mount(); (window as unknown as { MahsumaAgent?: unknown }).MahsumaAgent = w; };
+  const start = () => { const w = new MahsumahWidget(cfg); void w.mount(); (window as unknown as { MahsumahAgent?: unknown }).MahsumahAgent = w; };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
 })();
