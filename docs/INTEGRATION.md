@@ -19,15 +19,15 @@ const res = await fetch(`${AGENT_URL}/api/v1/agent/chat`, {
 
 الوضع المعتاد في مواقع محسومة: الزائر يسأل عن المنتج قبل التسجيل، وبعد الدخول يصبح عميلاً بصلاحيات أوسع.
 
-1. في لوحة التحكم → إعداد الوكيل → الصلاحيات والثقة: فعّل "السماح للزوار غير المسجلين" وأضف نطاقات موقعك (`https://mahsuma.sa`). القائمة الفارغة تسمح لأي نطاق وهي للتطوير فقط.
+1. في لوحة التحكم → إعداد الوكيل → الصلاحيات والثقة: فعّل "السماح للزوار غير المسجلين" وأضف نطاقات موقعك (`https://mahsumaah.sa`). القائمة الفارغة تسمح لأي نطاق وهي للتطوير فقط.
 2. للزائر: ضع الويدجت بدون `data-user-token`. الخادم يفرض دور `visitor` دائماً (لا أدوات حساب، لا فوترة، لا تذاكر) داخل tenant مشترك اسمه `anonymous`، ويحدّ الطلبات لكل زائر/IP.
 3. بعد تسجيل الدخول: أعد تحميل الويدجت مع `data-user-token` من الباك-إند فيرتفع الدور والصلاحيات تلقائياً، وتبدأ محادثة جديدة مرتبطة بحساب العميل.
 
 ```html
 <!-- قبل التسجيل -->
-<script src="https://agent.mahsuma.sa/widget.js" data-product-id="mahsuma-cloud" data-locale="ar"></script>
+<script src="https://agent.mahsumaah.sa/widget.js" data-product-id="mahsuma-cloud" data-locale="ar"></script>
 <!-- بعد التسجيل -->
-<script src="https://agent.mahsuma.sa/widget.js" data-product-id="mahsuma-cloud" data-user-token="mat_..." data-locale="ar"></script>
+<script src="https://agent.mahsumaah.sa/widget.js" data-product-id="mahsuma-cloud" data-user-token="mat_..." data-locale="ar"></script>
 ```
 
 ## 2) الويدجت من المتصفح — برمز مستخدم موقّع

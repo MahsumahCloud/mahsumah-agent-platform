@@ -86,5 +86,5 @@ curl -s -b c.txt -F file=@docs.pdf -F title="دليل المستخدم" http://l
 
 # إضافة رابط
 curl -s -b c.txt -X POST http://localhost:3000/api/v1/products/mahsuma-dcc/knowledge \
-  -H "Content-Type: application/json" -d '{"type":"url","url":"https://dcc.mahsuma.sa/docs/kpis"}'
+  -H "Content-Type: application/json" -d '{"type":"url","url":"https://dcc.mahsumaah.sa/docs/kpis"}'
 ```

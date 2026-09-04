@@ -1,13 +1,13 @@
 import type { ProductProfileInput } from "@/types";
 
-/** Agent for the main mahsuma.sa website: pre-sales and general customer service. */
+/** Agent for the main mahsumaah.sa website: pre-sales and general customer service. */
 export const mahsumaMain: ProductProfileInput = {
   id: "mahsuma",
   name: "محسومة (الموقع الرئيسي)",
   nameEn: "Mahsuma",
   description: "الموقع الرئيسي لمحسومة: التعريف بالشركة وعائلة منتجاتها، وخدمة العملاء العامة قبل التسجيل في أي منتج.",
   audience: "الزوار والعملاء المحتملون وأي عميل لا يعرف أي منتج يناسبه",
-  website: "https://mahsuma.sa",
+  website: "https://mahsumaah.sa",
   persona: {
     name: "مساعد محسومة",
     role: "خدمة العملاء العامة والتوجيه للمنتج المناسب",

@@ -29,14 +29,14 @@
 | `VOYAGE_API_KEY` / `OPENAI_API_KEY` | حسب المزوّد |
 | `ADMIN_PASSWORD` | كلمة مرور قوية للوحة التحكم |
 | `SESSION_SECRET` | 32+ حرفاً عشوائياً (`openssl rand -hex 32`) |
-| `NEXT_PUBLIC_APP_URL` | `https://agent.mahsuma.sa` |
+| `NEXT_PUBLIC_APP_URL` | `https://agent.mahsumaah.sa` |
 | `DATABASE_PATH` | `/data/agent.db` |
 | `UPLOAD_DIR` | `/data/uploads` |
 | `NODE_ENV` | `production` |
 
 ## 4) النطاق
 
-أضف `agent.mahsuma.sa` من Domains؛ SSL يُصدر تلقائياً. هذا هو الرابط الذي تستخدمه المواقع في `widget.js` وفي `/api/v1/agent/chat`.
+أضف `agent.mahsumaah.sa` من Domains؛ SSL يُصدر تلقائياً. هذا هو الرابط الذي تستخدمه المواقع في `widget.js` وفي `/api/v1/agent/chat`.
 
 ## 5) بعد أول نشر
 

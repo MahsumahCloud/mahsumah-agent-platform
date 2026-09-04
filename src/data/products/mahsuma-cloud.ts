@@ -6,7 +6,7 @@ export const mahsumaCloud: ProductProfileInput = {
   nameEn: "Mahsuma Cloud",
   description: "منصة استضافة ونشر تطبيقات الويب للسوق السعودي: ربط مباشر مع Git، نشر تلقائي، نطاقات وشهادات SSL، ومراكز بيانات داخل المملكة لتلبية متطلبات توطين البيانات.",
   audience: "المطورون، الشركات الناشئة، والشركات التي تحتاج استضافة متوافقة مع متطلبات البيانات السعودية",
-  website: "https://cloud.mahsuma.sa",
+  website: "https://cloud.mahsumaah.sa",
   persona: {
     name: "مساعد محسومة كلاود",
     role: "مساعد المطورين والشركات",

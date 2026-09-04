@@ -87,7 +87,7 @@ export function SettingsForm({ initial }: { initial: ProductProfile }) {
               <p className="mt-1 text-xs text-slate-500">الزائر يُعامل دائماً بدور <code>visitor</code>: يسأل عن المنتج والباقات والسياسات فقط، بلا أدوات حساب. بعد تسجيل الدخول يمرّر موقعك رمز مستخدم موقّعاً فيرتفع الدور تلقائياً.</p>
               {(p.access?.allowAnonymous ?? false) && (
                 <div className="mt-3 grid gap-3 md:grid-cols-[1fr_160px]">
-                  <Field label="النطاقات المسموح لها (سطر لكل نطاق، مثل https://mahsuma.sa). فارغ = أي نطاق (للتطوير فقط)">
+                  <Field label="النطاقات المسموح لها (سطر لكل نطاق، مثل https://mahsumaah.sa). فارغ = أي نطاق (للتطوير فقط)">
                     <textarea className="input" dir="ltr" rows={3} value={(p.access?.allowedOrigins ?? []).join("\n")} onChange={(e) => setP({ ...p, access: { ...(p.access ?? { allowAnonymous: true, anonymousRateLimit: 15 }), allowedOrigins: e.target.value.split("\n").map((s) => s.trim()).filter(Boolean) } })} />
                   </Field>
                   <Field label="طلبات/دقيقة لكل زائر"><input className="input" type="number" min={1} max={600} value={p.access?.anonymousRateLimit ?? 15} onChange={(e) => setP({ ...p, access: { ...(p.access ?? { allowAnonymous: true, allowedOrigins: [] }), anonymousRateLimit: Number(e.target.value) || 15 } })} /></Field>

@@ -6,7 +6,7 @@ export const mahsumaDcc: ProductProfileInput = {
   nameEn: "Mahsuma DCC",
   description: "منصة قيادة رقمية وإدارة مؤسسية (Digital Command Center): لوحات قيادة تنفيذية، مؤشرات أداء، إدارة المبادرات والمهام، وتقارير للإدارة العليا.",
   audience: "الإدارة التنفيذية، مكاتب إدارة المشاريع (PMO)، ومديرو الإدارات في الشركات والجهات الحكومية",
-  website: "https://dcc.mahsuma.sa",
+  website: "https://dcc.mahsumaah.sa",
   persona: {
     name: "مساعد محسومة DCC",
     role: "مستشار القيادة الرقمية والإدارة المؤسسية",
